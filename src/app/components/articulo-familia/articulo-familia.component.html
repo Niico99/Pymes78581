@@ -1,0 +1,35 @@
+<form [formGroup]="frmArticulos">
+    
+    <div class="form-group">
+      <label for="IdArticuloFamilia">IdArticuloFamilia</label>
+      <input 
+      type="text"
+      formControlName="IdArticuloFamilia"
+      class="form-control" 
+      name="IdArticuloFamilia" 
+      id="IdArticuloFamilia" 
+      aria-describedby="helpId" 
+      placeholder="">
+      <small id="helpId" class="form-text text-muted">Help text</small>
+    </div>
+
+    <div class="form-group">
+      <label for="Familia">Familia</label>
+      <input 
+      type="text"
+      formControlName="Familia"
+      class="form-control" 
+      name="Familia" 
+      id="Familia" 
+      aria-describedby="helpId" 
+      placeholder="">
+      <small id="helpId" class="form-text text-muted">Help text</small>
+    </div>
+
+    <input name="" id="" class="btn btn-primary" type="button" value="Mostrar"
+    (click)="mostrar()">
+
+    <input name="" id="" class="btn btn-primary" type="button" value="Limpiar"
+    (click)="limpiar()">
+
+</form>

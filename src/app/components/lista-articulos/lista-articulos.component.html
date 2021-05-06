@@ -1,0 +1,58 @@
+<div>
+    <!--Titulo-->
+    <h3>{{ titulo + ' - Versión de Angular: ' + obtenerVersion() }}</h3>
+
+    <!--Filtros-->
+    <div class="form-group">
+        <label for="filtro">Filtro</label>
+        <input type="text" class="form-control" name="filtro" id="filtro" aria-describedby="helpId" placeholder=""
+            [(ngModel)]="filtro">
+        <small id="helpId" class="form-text text-muted">...</small>
+    </div>
+
+    <div class="form-group">
+        <label for="cantidadMinima"></label>
+        <input type="text" class="form-control" name="cantidadMinima" id="cantidadMinima" aria-describedby="helpId"
+            placeholder="" [(ngModel)]="cantidadMinima">
+        <small id="helpId" class="form-text text-muted">...</small>
+    </div>
+
+    <div class="text-info">
+        Usted va a filtrar por {{filtro}} y con cantidad mínima de {{cantidadMinima}}
+    </div>
+
+    <!--Tabla con resultados-->
+    <div class="table-responsive">
+        <p *ngIf="articulos.length == 0">No hay elementos</p>
+        <table class="table" *ngIf="articulos.length > 0">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Descripción</th>
+                    <th>Código</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Puntaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let art of articulos">
+                    <td>
+                        <input class="btn {{art.active?'btn-warning':'btn-primary'}}" type="button"
+                            [value]="art.active?'Ocultar':'Mostrar'" (click)="cambiarEstado(art)">
+                        <img [src]="art.imagen" [style.height.px]="alturaImagen" *ngIf="art.active">
+                        <!--Esto es con directiva-->
+                        <!-- <img [src]="art.imagen" [style.height.px]="alturaImagen" 
+                            [style.display]="art.active?'':'none'"> Esto es modificando la propiedad-->
+                    </td>
+                    <td>{{art.descripcion | uppercase}}</td>
+                    <td>{{art.codigo | convertirAEspacio: '-'}}</td>
+                    <td>{{art.cantidad}}</td>
+                    <td>{{art.precio | currency:'ARS$':true:1.2-2}}</td>
+                    <td>{{art.puntaje | number}} <app-puntaje [puntaje]="art.puntaje" (puntajeClicked)="onPuntajeClicked($event)"></app-puntaje></td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="button" value="Limpiar Array" (click)="limpiar()">
+    </div>
+</div>
