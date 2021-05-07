@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-   selector: 'puntaje',
+   selector: 'app-puntaje',
    templateUrl: './puntaje.component.html',
    styleUrls: ['./puntaje.component.css']
 
