@@ -20,17 +20,17 @@ export class ListaArticulosComponent implements OnInit {
         descripcion: 'Articulo X',
         codigo: 'xsd-143',
         cantidad: 139,
-        precio: 1221.49999,
+        precio: 1220.0576,
         puntaje: 4.8,
         imagen: '/assets/imagenes/art02.jpg',
-        active: false
+        active: true
     },
     {
         id: 5,
         descripcion: 'Articulo Y',
         codigo: 'dlg-912',
         cantidad: 336,
-        precio: 400.99,
+        precio: 400.50995,
         puntaje: 3.5,
         imagen: '/assets/imagenes/art03.jpg',
         active: true

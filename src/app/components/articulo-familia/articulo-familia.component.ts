@@ -15,7 +15,7 @@ export class ArticuloFamiliaComponent implements OnInit{
     ngOnInit(): void {
         this.frmArticulos = this.fb.group(
             {
-                IdArticuloFamilia: [0],
+                IdArticuloFamilia: [],
                 Familia: ['']
             }
         );
@@ -28,7 +28,7 @@ export class ArticuloFamiliaComponent implements OnInit{
 
     limpiar(){
         this.frmArticulos.reset({
-            IdArticuloFamilia: [0],
+            IdArticuloFamilia: [],
             Familia: ['']
         });
     }
