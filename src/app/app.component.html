@@ -1,7 +1,17 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand">PYMES PAV II</a>
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" [routerLink]="['/']">Inicio</a></li>
+    <li><a class="nav-link" [routerLink]="['/articulo']">Articulo</a></li>
+    <li><a class="nav-link" [routerLink]="['/listaarticulo']">Lista Artículos</a></li>
+  </ul>
+ </nav>
+
 <div class="container">
   <h1>
-    Hola Mundo - {{title}}
+    Routing con Angular - {{title}}
   </h1>
-  <app-lista-articulos></app-lista-articulos>
-  <app-articulo-familia></app-articulo-familia>
+  <router-outlet></router-outlet>
+  <!--<app-lista-articulos></app-lista-articulos>
+  <app-articulo-familia></app-articulo-familia>-->
 </div>

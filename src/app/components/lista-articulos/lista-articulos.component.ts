@@ -1,11 +1,13 @@
 import { Component, OnInit, VERSION, Version } from '@angular/core';
+import { ArticulosService } from 'src/app/services/articulos.service';
 //import { FormsModule } from "@angular/forms";
 import { IArticulo } from '../../models/iarticulo'
 
 @Component({
   selector: 'app-lista-articulos',
   templateUrl: './lista-articulos.component.html',
-  styleUrls: ['./lista-articulos.component.css']
+  styleUrls: ['./lista-articulos.component.css'],
+  providers: [ArticulosService]
 })
 
 export class ListaArticulosComponent implements OnInit {
@@ -14,34 +16,24 @@ export class ListaArticulosComponent implements OnInit {
   alturaImagen = 40;
   filtro: string;
   cantidadMinima: string;
-  articulos: IArticulo[] = [
-    {
-        id: 2,
-        descripcion: 'Articulo X',
-        codigo: 'xsd-143',
-        cantidad: 139,
-        precio: 1220.0576,
-        puntaje: 4.8,
-        imagen: '/assets/imagenes/art02.jpg',
-        active: true
-    },
-    {
-        id: 5,
-        descripcion: 'Articulo Y',
-        codigo: 'dlg-912',
-        cantidad: 336,
-        precio: 400.50995,
-        puntaje: 3.5,
-        imagen: '/assets/imagenes/art03.jpg',
-        active: true
-    }       
-];
+  articulos: IArticulo[];
 
 
-  constructor() { }
+  constructor(private articulosService: ArticulosService) { }
 
 
   ngOnInit(): void {
+    this.articulos = this.articulosService.getArticulos();
+    this.articulos[0] = {
+        id: 35,
+        descripcion: 'Articulo AAA',
+        codigo: 'xsd-999',
+        cantidad: 150,
+        precio: 566.85,
+        puntaje: 1,
+        imagen: '/assets/imagenes/art07.jpg',
+        active: true
+    };  
   }
 
   obtenerVersion(): string {
